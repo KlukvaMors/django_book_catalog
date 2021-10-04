@@ -10,5 +10,5 @@
 
 ## DECOMPOSITION of TASKS
 
-- add bootrstrap framework
+- ~~add bootrstrap framework~~
 - create BS detail views for all models
