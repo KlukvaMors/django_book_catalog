@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<ul>
+    
+    <li><b>title: </b> {{book.title}}</li>
+    <li><b>summary: </b> {{book.summary}}</li>
+    <li><b>Date of release: </b> {{book.date_of_release}}</li>
+    <li><b>Author: </b> <a href="{{book.author.get_absolute_url}}">{{book.author}}</a></li>
+    <li><b>Genre: </b></li>
+    <ul>
+        {% for genre in book.genre.all %}
+            <li> {{genre}} </li>
+        {% endfor %}
+    </ul>
+
+</ul>
+
+{% endblock content %}
