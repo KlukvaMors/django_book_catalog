@@ -3,6 +3,8 @@ from django.urls import reverse
 
 from django.utils.translation import gettext as _
 
+
+
 class Genre(models.Model):
     """Model representing a book genre."""
 
@@ -14,7 +16,7 @@ class Genre(models.Model):
 
 class Author(models.Model):
     """Model representing an author."""
-    
+
     full_name = models.CharField(max_length=200)
     date_of_birth = models.DateField(null=True, blank=True)
     image = models.ImageField()
@@ -26,7 +28,7 @@ class Author(models.Model):
         return reverse('author-detail', args=[str(self.id)])
 
     def __str__(self):
-        return f'{self.last_name}, {self.first_name}'
+        return f'{self.full_name}'
 
 
 class Book(models.Model):
