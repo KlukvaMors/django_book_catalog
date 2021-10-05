@@ -19,7 +19,7 @@ class Author(models.Model):
 
     full_name = models.CharField(max_length=200)
     date_of_birth = models.DateField(null=True, blank=True)
-    image = models.ImageField()
+    image = models.ImageField(null=True, blank=True)
 
     class Meta:
         ordering = ['full_name', ]
@@ -37,7 +37,7 @@ class Book(models.Model):
     title = models.CharField(max_length=200)
     summary = models.TextField(max_length=1000, help_text='Enter a brief description of the book')
     date_of_release = models.DateField()
-    image = models.ImageField()
+    image = models.ImageField(null=True, blank=True)
 
     # FK
     genre = models.ManyToManyField(Genre, help_text='Select a genre for this book')
