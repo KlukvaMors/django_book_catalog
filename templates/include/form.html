@@ -1,0 +1,37 @@
+{% extends "include/panel.html" %}
+{% load widget_tweaks %}
+
+{% block heading %}
+    <h4> {% firstof title "Form" %} </h4>
+{% endblock heading %}
+
+{% block body %}
+
+    <form method="POST" name = "form" class="form-horizontal" style="margin: 1em;">
+        {% csrf_token %}
+        <div>
+        {% for field in form %}
+        <div class="form-group">
+            {{field.label_tag}}
+            <div class="input-group">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-unchecked"></i> </span>
+                <div>{{field|add_class:"form-control"}}</div>
+            </div>
+            {% if field.errors%}
+                {% for error in field.errors %}
+                <div class="alert alert-danger">
+                    {{error}}
+                </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+        {% endfor %}
+        </div>
+        <input class='btn btn-primary' type="submit" value="Send" >
+    </form>
+
+{% endblock body %}
+
+
+
+

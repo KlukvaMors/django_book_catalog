@@ -17,4 +17,8 @@
 
 </ul>
 
+<a href="{% url  'book-create' %}" class="btn btn-primary ">Create</a>
+<a href="{% url  'book-update' pk=book.id %}" class="btn btn-warning ">Update</a>
+<a href="{% url  'book-delete' pk=book.id  %}" class="btn btn-danger ">Delete</a>
+
 {% endblock content %}

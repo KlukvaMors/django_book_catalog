@@ -1,0 +1,28 @@
+{% load my_tags %}
+
+{% with fields=fields.split %}
+<table class="table table-striped table-hover" style="border: 1px solid gray;">
+
+    <thead>
+        <tr>
+            {% for field in fields %}
+            <td><b>{{field}}</b></td>
+            {% endfor %}
+        </tr>
+    </thead>
+    
+    <tbody>
+      {% for model in list %}
+
+      <tr onclick="window.location='{{model.get_absolute_url}}'">
+        {% for field in fields %}
+        <td>{{model|get_attr:field}}</td>
+        {% endfor %}
+      </tr>
+
+      {% endfor %}
+    </tbody>
+
+
+</table>
+{% endwith %}

@@ -1,0 +1,13 @@
+  {% extends "base.html" %}
+  
+  {% block content %}
+
+  <form method="get">
+    {{ filter.form.as_p }}
+    <input type="submit" />
+  </form>
+
+  {% include "include/model_table.html" with list=filter.qs fields='title author date_of_release' only%}
+
+  {% endblock content %}
+  

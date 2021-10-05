@@ -21,7 +21,24 @@ def book_list(request):
 
 class BookDetailView(generic.DetailView):
     model = Book
-    template_name = 'book_detail.html'
+    template_name = 'book/detail.html'
+
+class BookCreateView(generic.CreateView):
+    model = Book
+    template_name = 'book/form.html'
+    fields = ['title', 'summary', 'date_of_release', 'image']
+
+class BookUpdateView(generic.UpdateView):
+    model = Book
+    template_name = 'book/form.html'
+    fields = ['title', 'summary', 'date_of_release', 'image']
+
+class BookDeleteView(generic.DeleteView):
+    model = Book
+    template_name = 'book/confirm_delete.html'
+    success_url = reverse_lazy('index')
+
+
 
 class AuthorDetailView(generic.DetailView):
     model = Author

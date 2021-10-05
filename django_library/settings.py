@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'django_filters',
+    'widget_tweaks',
     'rest_framework',
 
     'book_catalog',
