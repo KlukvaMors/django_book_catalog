@@ -1,6 +1,7 @@
 from django.db import models
 from django.shortcuts import render
 from django.views import generic
+from django.urls import reverse_lazy
 
 from book_catalog.filters import BookFilter
 from .models import Author, Book
@@ -25,3 +26,18 @@ class BookDetailView(generic.DetailView):
 class AuthorDetailView(generic.DetailView):
     model = Author
     template_name = 'author_detail.html'
+
+class AuthorCreateView(generic.CreateView):
+    model = Author
+    template_name = 'author_form.html'
+    fields = ['full_name', 'date_of_birth', 'image']
+
+class AuthorUpdateView(generic.UpdateView):
+    model = Author
+    template_name = 'author_form.html'
+    fields = ['full_name', 'date_of_birth', 'image']
+
+class AuthorDeleteView(generic.DeleteView):
+    model = Author
+    template_name = 'author_confirm_delete.html'
+    success_url = reverse_lazy('index')

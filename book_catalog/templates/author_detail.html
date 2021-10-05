@@ -9,4 +9,8 @@
 
 </ul>
 
+<a href="{% url  'author-create' %}" class="btn btn-primary ">Create</a>
+<a href="{% url  'author-update' pk=author.id %}" class="btn btn-warning ">Update</a>
+<a href="{% url  'author-delete' pk=author.id  %}" class="btn btn-danger ">Delete</a>
+
 {% endblock content %}
