@@ -16,7 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
+
 from . import views
+
+from rest_framework import routers
+from .rest_views import AuthorSetRest, BookSetRest, GenreSetRest
+
+router = routers.DefaultRouter()
+router.register('books', BookSetRest)
+router.register('authors', AuthorSetRest)
+router.register('genres', GenreSetRest)
+
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -32,4 +42,6 @@ urlpatterns = [
     path('author/create', views.AuthorCreateView.as_view(), name='author-create'),
     path('author/<int:pk>/update', views.AuthorUpdateView.as_view(), name='author-update'),
     path('author/<int:pk>/delete', views.AuthorDeleteView.as_view(), name='author-delete'),
+
+    path('api/', include(router.urls)),
 ]
