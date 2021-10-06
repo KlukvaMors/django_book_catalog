@@ -60,22 +60,22 @@ class BookDeleteView(PermissionRequiredMixin, generic.DeleteView):
 
 class AuthorDetailView(generic.DetailView):
     model = Author
-    template_name = 'author_detail.html'
+    template_name = 'author/detail.html'
 
 class AuthorCreateView(PermissionRequiredMixin, generic.CreateView):
     model = Author
-    template_name = 'author_form.html'
+    template_name = 'author/form.html'
     permission_required = f'book_catalog.{PERM_CAN_EDIT[0]}'
     fields = ['full_name', 'date_of_birth', 'image']
 
 class AuthorUpdateView(PermissionRequiredMixin, generic.UpdateView):
     model = Author
-    template_name = 'author_form.html'
+    template_name = 'author/form.html'
     permission_required = f'book_catalog.{PERM_CAN_EDIT[0]}'
     fields = ['full_name', 'date_of_birth', 'image']
 
 class AuthorDeleteView(PermissionRequiredMixin, generic.DeleteView):
     model = Author
-    template_name = 'author_confirm_delete.html'
+    template_name = 'author/confirm_delete.html'
     permission_required = f'book_catalog.{PERM_CAN_EDIT[0]}'
     success_url = reverse_lazy('index')
