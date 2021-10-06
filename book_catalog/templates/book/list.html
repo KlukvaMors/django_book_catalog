@@ -9,5 +9,7 @@
 
   {% include "include/model_table.html" with list=book_list fields='title author date_of_release' only%}
 
+  {% include "include/pagination.html" with page_obj=page_obj only %}
+
   {% endblock content %}
   

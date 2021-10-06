@@ -4,7 +4,7 @@
 
   {% include "include/model_table.html" with list=author_list fields='full_name date_of_birth' only%}
   
-  {% include "include/pagination.html" with page_obj=page_obj paginator=paginator only%}
+  {% include "include/pagination.html" with page_obj=page_obj only%}
 
   {% endblock content %}
   
