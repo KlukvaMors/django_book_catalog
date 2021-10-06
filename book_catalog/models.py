@@ -3,12 +3,16 @@ from django.urls import reverse
 
 from django.utils.translation import gettext as _
 
+PERM_CAN_EDIT = ('can_edit', 'User can create, update and delete model')
 
 
 class Genre(models.Model):
     """Model representing a book genre."""
 
     name = models.CharField(max_length=200, help_text='Enter a book genre (e.g. Science Fiction)')
+
+    class Meta:
+        permissions = (PERM_CAN_EDIT,)
 
     def __str__(self):
         return self.name
@@ -23,6 +27,7 @@ class Author(models.Model):
 
     class Meta:
         ordering = ['full_name', ]
+        permissions = (PERM_CAN_EDIT,)
 
     def get_absolute_url(self):
         return reverse('author-detail', args=[str(self.id)])
@@ -43,6 +48,8 @@ class Book(models.Model):
     genre = models.ManyToManyField(Genre, help_text='Select a genre for this book')
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
 
+    class Meta:
+        permissions = (PERM_CAN_EDIT,)
 
     def __str__(self):
         return self.title
