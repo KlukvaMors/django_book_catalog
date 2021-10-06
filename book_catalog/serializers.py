@@ -2,22 +2,22 @@ from django.db import models
 from rest_framework import serializers
 from .models import Book, Author, Genre
 
-class BookSerializers(serializers.HyperlinkedModelSerializer):
+class BookSerializers(serializers.ModelSerializer):
 
     class Meta:
         model = Book
-        fields = ('title', 'summary', 'date_of_release', 'image')
+        fields = ('id', 'title', 'summary', 'date_of_release', 'image', 'author')
 
 
-class AuthorSerializer(serializers.HyperlinkedModelSerializer):
+class AuthorSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Author
-        fields = ['full_name', 'date_of_birth', 'image']
+        fields = ['id', 'full_name', 'date_of_birth', 'image']
 
 
-class GenreSerializer(serializers.HyperlinkedModelSerializer):
+class GenreSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Genre
-        fields = ['name', ]
+        fields = ['id', 'name']
