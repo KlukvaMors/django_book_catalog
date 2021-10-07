@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.db.models import base
 from django.urls import path
 from django.urls.conf import include
 
@@ -23,9 +24,9 @@ from rest_framework import routers
 from .rest_views import AuthorSetRest, BookSetRest, GenreSetRest
 
 router = routers.DefaultRouter()
-router.register('books', BookSetRest)
-router.register('authors', AuthorSetRest)
-router.register('genres', GenreSetRest)
+router.register('books', BookSetRest, basename='book-api')
+router.register('authors', AuthorSetRest, basename='author-api')
+router.register('genres', GenreSetRest, basename='genre-api')
 
 
 urlpatterns = [
