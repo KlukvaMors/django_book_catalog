@@ -1,0 +1,13 @@
+{% with width=255 height=255 %}
+
+    {% if image and image.url %}
+
+    <img src="{{image.url}}" width={{width}} height={{height}} alt="No image found" class="mx-auto d-blockimg-thumbnail">
+
+    {% else %}
+
+    <img src="/media/default_image.svg" width={{width}} height={{height}} class="mx-auto d-block img-thumbnail">
+
+    {% endif %}
+
+{% endwith %}

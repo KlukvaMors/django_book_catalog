@@ -2,6 +2,8 @@
 
 {% block content %}
 
+{% include "include/image.html" with image=author.image only %}
+
 <ul>
     
     <li><b>Full name: </b> {{author.full_name}}</li>
