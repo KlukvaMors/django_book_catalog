@@ -1,18 +1,24 @@
-{% extends "base.html" %}
+{% extends "base_panel.html" %}
 
-{% block content %}
+{% block panel_heading %}
+    Author
+{% endblock panel_heading %}
 
-{% include "include/image.html" with image=author.image only %}
+{% block panel_body %}
 
-<ul>
-    
-    <li><b>Full name: </b> {{author.full_name}}</li>
-    <li><b>Date of birth: </b> {{author.date_of_birth}}</li>
+    {% include "include/image.html" with image=author.image only %}
 
-</ul>
+    <ul>
+        
+        <li><b>Full name: </b> {{author.full_name}}</li>
+        <li><b>Date of birth: </b> {{author.date_of_birth}}</li>
 
-<a href="{% url  'author-create' %}" class="btn btn-primary ">Create</a>
-<a href="{% url  'author-update' pk=author.id %}" class="btn btn-warning ">Update</a>
-<a href="{% url  'author-delete' pk=author.id  %}" class="btn btn-danger ">Delete</a>
+    </ul>
 
-{% endblock content %}
+{% endblock panel_body %}
+
+{% block panel_footer %}
+
+{% include "include/model_cud.html" with model=author only%}
+
+{% endblock panel_footer %}

@@ -1,6 +1,10 @@
-{% extends "base.html" %}
+{% extends "base_panel.html" %}
 
-{% block content %}
+{% block panel_heading %}
+Book
+{% endblock panel_heading %}
+
+{% block panel_body %}
 
 {% include "include/image.html" with image=book.image only %}
 
@@ -19,8 +23,11 @@
 
 </ul>
 
-<a href="{% url  'book-create' %}" class="btn btn-primary ">Create</a>
-<a href="{% url  'book-update' pk=book.id %}" class="btn btn-warning ">Update</a>
-<a href="{% url  'book-delete' pk=book.id  %}" class="btn btn-danger ">Delete</a>
 
-{% endblock content %}
+{% endblock panel_body %}
+
+{% block panel_footer %}
+
+{% include "include/model_cud.html" with model=book only %}
+
+{% endblock panel_footer %}

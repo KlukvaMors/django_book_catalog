@@ -1,0 +1,7 @@
+<!-- model cud Create Update Delete -->
+{% load my_tags %}
+
+
+<a href="{% url  model|to_model_name|add:'-create' %}" class="btn btn-primary ">Create</a>
+<a href="{% url  model|to_model_name|add:'-update' pk=model.id %}" class="btn btn-warning ">Update</a>
+<a href="{% url  model|to_model_name|add:'-delete' pk=model.id  %}" class="btn btn-danger ">Delete</a>
