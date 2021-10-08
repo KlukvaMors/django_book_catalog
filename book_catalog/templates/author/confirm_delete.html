@@ -2,13 +2,6 @@
 
 {% block content %}
 
-<h1>Delete Author</h1>
-
-<p>Are you sure you want to delete the author: {{ author }}?</p>
-
-<form action="" method="POST">
-  {% csrf_token %}
-  <input type="submit" value="Yes, delete.">
-</form>
+{% include "include/delete_dialog.html" with model='author' %}
 
 {% endblock %}

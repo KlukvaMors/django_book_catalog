@@ -53,7 +53,7 @@ class BookDeleteView(PermissionRequiredMixin, generic.DeleteView):
     model = Book
     template_name = 'book/confirm_delete.html'
     permission_required = f'book_catalog.{PERM_CAN_EDIT[0]}'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('book-list')
 
 
 # === Author Views ===
@@ -83,4 +83,4 @@ class AuthorDeleteView(PermissionRequiredMixin, generic.DeleteView):
     model = Author
     template_name = 'author/confirm_delete.html'
     permission_required = f'book_catalog.{PERM_CAN_EDIT[0]}'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('author-list')

@@ -1,0 +1,18 @@
+<div class="col-md-3"></div>
+<div class="col-md-6">
+    <div class="panel panel-default">
+        <div class="panel-heading text-center">
+            <h4>
+            {{ "Delete "|add:model|add:". Are you sure?"}}
+            </h4>
+        </div>
+        <div class="panel-body">
+            <form action="" method="POST" class="text-center"> 
+            {% csrf_token %}
+            <input type="submit" class="btn btn-lg btn-danger" value="Delete">
+            <a class="btn btn-lg btn-primary" href="{% url model|add:'-list'%}">Cancel</a>
+            </form>
+        </div>
+    </div>
+
+</div>
