@@ -7,7 +7,7 @@
 
 {% block body %}
 
-    <form method="POST" name = "form" class="form-horizontal" style="margin: 1em;">
+    <form method="POST" name = "form" class="form-horizontal" style="margin: 1em;" enctype="multipart/form-data">
         {% csrf_token %}
         <div>
         {% for field in form %}

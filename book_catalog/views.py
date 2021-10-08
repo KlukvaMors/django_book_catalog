@@ -61,7 +61,7 @@ class BookDeleteView(PermissionRequiredMixin, generic.DeleteView):
 class AuthorListView(generic.ListView):
     model = Author
     template_name = 'author/list.html'
-    paginate_by = 1
+    paginate_by = 10
 
 class AuthorDetailView(generic.DetailView):
     model = Author
