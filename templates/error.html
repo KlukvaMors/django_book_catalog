@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="alert alert-danger">
+    {% block error_body %}
+    Opps. Something wrong:/
+    {% endblock error_body %}
+    </div>
+{% endblock content %}
