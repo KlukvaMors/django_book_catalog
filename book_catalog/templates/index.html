@@ -5,9 +5,12 @@ Index of catalog
 {% endblock title %}
 
 {% block content %}
-<h1> Index Catalog </h1>
 
-This is index
+{% autoescape off %}
+
+    {{ readme}}
+
+{% endautoescape %}
 
 
 {% endblock content %}

@@ -1,12 +1,17 @@
 # Тестовое задание
 
 **Технологии**:
+
 - Django: 3.2.7
     - Django Rest Framework
     - Django Filter
 - Python: 3.8.8
+- PostgreSQL
+- Gunicorn
+- NGinx
 
 **Изначальное задание**:
+
 - Аутентификация/авторизация (basic auth)
 - Модели:
     - Книга

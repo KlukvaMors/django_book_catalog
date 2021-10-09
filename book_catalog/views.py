@@ -7,11 +7,16 @@ from django.views import generic
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import PermissionRequiredMixin
 
+import markdown
+
 from book_catalog.filters import BookFilter
 from .models import PERM_CAN_EDIT, Author, Book
 
 def index(request):
-    return render(request, 'index.html')
+    with open("README.md") as f:
+        readme = f.read()
+    readme = markdown.markdown(readme)
+    return render(request, 'index.html', {'readme': readme})
 
 
 # === Book Views ===
