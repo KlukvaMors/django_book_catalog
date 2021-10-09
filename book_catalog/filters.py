@@ -4,7 +4,7 @@ from .models import Book
 class BookFilter(django_filters.FilterSet):
     title = django_filters.CharFilter(field_name='title', lookup_expr='icontains', label='Title')
     author = django_filters.CharFilter(field_name='author__full_name', lookup_expr='icontains', label='Author')
-    order = django_filters.ChoiceFilter(method='by_ascending_order_release', label='Order',
+    order = django_filters.ChoiceFilter(method='by_ascending_order_release', label='date',
      choices=(
          ('ASC', 'by ascending'),
          ('DESC', 'by descending'))

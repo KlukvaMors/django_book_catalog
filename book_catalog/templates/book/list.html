@@ -1,10 +1,16 @@
   {% extends "base.html" %}
+  {% load widget_tweaks %}
   
   {% block content %}
 
-  <form method="get">
-    {{ filter.form.as_p }}
-    <input type="submit" />
+  <form method="get" class="form-inline">
+    {{ filter.form.title|add_class:"form-control"|attr:"placeholder:title"  }}
+    {{ filter.form.author|add_class:"form-control"|attr:"placeholder:author" }}
+    <div class="form-group">
+      {{ filter.form.order.label_tag }}
+      {{ filter.form.order|add_class:"form-control"|attr:"placeholder:date of release" }}
+    </div>
+    <input type="submit" value="Search" class="btn btn-secondary"/>
   </form>
 
   {% include "include/model_table.html" with list=book_list fields='title author date_of_release' only%}
