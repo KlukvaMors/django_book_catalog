@@ -1,8 +1,17 @@
-{% with width=255 height=255 %}
+{% with width=300 height=300 %}
 
     {% if image and image.url %}
 
-    <img src="{{image.url}}" width={{width}} height={{height}} alt="No image found" class="mx-auto d-blockimg-thumbnail">
+        
+
+        {% if image.width > image.height %}
+            <img src="{{image.url}}" width={{width}} height={% widthratio image.height image.width height %} alt="No image found" class="mx-auto d-blockimg-thumbnail">
+
+        {% else %}
+            <img src="{{image.url}}" width={% widthratio image.width image.height width %} height={{height}} alt="No image found" class="mx-auto d-blockimg-thumbnail">
+        {% endif %}
+
+
 
     {% else %}
 
